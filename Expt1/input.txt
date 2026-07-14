@@ -1,0 +1,8 @@
+/*this is a program*/
+int main()
+
+{
+
+int a=10;
+
+}
