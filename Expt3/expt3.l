@@ -10,17 +10,16 @@ FILE *yyin;
 
 %%
 
-[\t ]+          ;                   /* Ignore spaces and tabs */
+[\t]+          ;
 
-\n              {
+\n             {
                     lines++;
-                    chars++;
-                }
+               }
 
-[^\t \n]+       {
+[^\t\n]+       {
                     words++;
                     chars += yyleng;
-                }
+               }
 
 %%
 
@@ -46,14 +45,13 @@ int main()
     }
 
     yyin = fp;
-
     yylex();
 
-    printf("\nNumber of Lines      : %d\n", lines);
-    printf("Number of Words      : %d\n", words);
-    printf("Number of Characters : %d\n", chars);
-
     fclose(fp);
+
+    printf("\nNumber of lines: %d\n", lines);
+    printf("Number of words: %d\n", words);
+    printf("Number of characters: %d\n", chars);
 
     return 0;
 }
